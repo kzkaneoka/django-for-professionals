@@ -25,7 +25,7 @@ SECRET_KEY = "%^1a@86vv(w1+l7#622tf2=#%&uwp08(z04zkic%b0v+$6uth#"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Local
     "accounts",
+    "pages",
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [str(BASE_DIR.joinpath("templates"))],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
