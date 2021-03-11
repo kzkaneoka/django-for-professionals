@@ -126,7 +126,19 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+# static file path for local development
+STATICFILES_DIRS = (str(BASE_DIR.joinpath("static")),)
+
+# static file path for production
+STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 LOGIN_REDIRECT_URL = "home"
+
 LOGOUT_REDIRECT_URL = "home"
